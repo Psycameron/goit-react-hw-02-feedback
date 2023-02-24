@@ -38,9 +38,9 @@ class FeedbackForm extends Component {
 
   render() {
     return (
-      <div className={style.Form}>
+      <div className={style.form}>
         <Section title="Please leave feedback">
-          <ul>
+          <ul className={style.form__list}>
             <FeedbackOptions
               options={['Good', 'Neutral', 'Bad']}
               onLeaveFeedback={this.handleIncrement}

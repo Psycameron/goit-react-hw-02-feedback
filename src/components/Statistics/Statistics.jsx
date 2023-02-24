@@ -1,28 +1,30 @@
+import style from './Statistics.module.css';
+
 export function Statistics({ good, neutral, bad, total, positivePercentage }) {
   const totalFeedbacks = total;
   const posPercentage = positivePercentage.toFixed(0);
 
   return (
     <div>
-      <p>
+      <p className={style.good}>
         Good:
-        <span>{good}</span>
+        <span className={style.number}>{good}</span>
       </p>
-      <p>
+      <p className={style.neutral}>
         Neutral:
-        <span>{neutral}</span>
+        <span className={style.number}>{neutral}</span>
       </p>
-      <p>
+      <p className={style.bad}>
         Bad:
-        <span>{bad}</span>
+        <span className={style.number}>{bad}</span>
       </p>
       <p>
         Total:
-        <span>{totalFeedbacks}</span>
+        <span className={style.number}>{totalFeedbacks}</span>
       </p>
       <p>
         Positive feedbacks:
-        <span>{posPercentage}%</span>
+        <span className={style.number}>{posPercentage}%</span>
       </p>
     </div>
   );

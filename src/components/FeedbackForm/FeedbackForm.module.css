@@ -1,8 +1,12 @@
-.Form {
-    padding: 40px;
-  width: 100%;
+.form {
 }
 
-.Form__button {
-    margin-right: 30px;
+.form__button {
+  margin-right: 30px;
+}
+
+.form__list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
