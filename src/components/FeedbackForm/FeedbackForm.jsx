@@ -48,6 +48,7 @@ class FeedbackForm extends Component {
     return (
       <div className={style.Form}>
         <h1>Please leave feedback</h1>
+
         <button
           type="button"
           className={style.Form__button}
@@ -70,12 +71,14 @@ class FeedbackForm extends Component {
           Bad
         </button>
 
+        <h2>Statistics</h2>
+
         <Statistics
-          onIncrementGood={this.state.good}
-          onIncrementNeutral={this.state.neutral}
-          onIncrementBad={this.state.bad}
-          onTotal={this.countTotalFeedback()}
-          onPositivePercentage={this.countPositiveFeedbacksPercentage()}
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          total={this.countTotalFeedback()}
+          positivePercentage={this.countPositiveFeedbacksPercentage()}
         />
       </div>
     );

@@ -1,35 +1,28 @@
-export function Statistics({
-  onIncrementGood,
-  onIncrementNeutral,
-  onIncrementBad,
-  onTotal,
-  onPositivePercentage,
-}) {
-  const total = onTotal;
-  const positivePercentage = onPositivePercentage.toFixed(0);
+export function Statistics({ good, neutral, bad, total, positivePercentage }) {
+  const allFeedbacks = total;
+  const posPercentage = positivePercentage.toFixed(0);
 
   return (
     <div>
-      <h2>Statistics</h2>
       <p>
         Good:
-        <span>{onIncrementGood}</span>
+        <span>{good}</span>
       </p>
       <p>
         Neutral:
-        <span>{onIncrementNeutral}</span>
+        <span>{neutral}</span>
       </p>
       <p>
         Bad:
-        <span>{onIncrementBad}</span>
+        <span>{bad}</span>
       </p>
       <p>
         Total:
-        <span>{total}</span>
+        <span>{allFeedbacks}</span>
       </p>
       <p>
         Positive feedbacks:
-        <span>{positivePercentage}%</span>
+        <span>{posPercentage}%</span>
       </p>
     </div>
   );
