@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { Section } from 'components/Section';
 import { FeedbackOptions } from 'components/FeedbackOptions';
 import { Statistics } from 'components/Statistics';
 
@@ -37,23 +38,24 @@ class FeedbackForm extends Component {
   render() {
     return (
       <div className={style.Form}>
-        <h1>Please leave feedback</h1>
-        <ul>
-          <FeedbackOptions
-            options={['Good', 'Neutral', 'Bad']}
-            onLeaveFeedback={this.handleIncrement}
+        <Section title="Please leave feedback">
+          <ul>
+            <FeedbackOptions
+              options={['Good', 'Neutral', 'Bad']}
+              onLeaveFeedback={this.handleIncrement}
+            />
+          </ul>
+        </Section>
+
+        <Section title="Statistics">
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback()}
+            positivePercentage={this.countPositiveFeedbacksPercentage()}
           />
-        </ul>
-
-        <h2>Statistics</h2>
-
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={this.countTotalFeedback()}
-          positivePercentage={this.countPositiveFeedbacksPercentage()}
-        />
+        </Section>
       </div>
     );
   }
