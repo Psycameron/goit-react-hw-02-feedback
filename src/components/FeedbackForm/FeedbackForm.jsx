@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Statistics } from 'components/Statistics';
+
 import style from './FeedbackForm.module.css';
 
 class FeedbackForm extends Component {
@@ -11,13 +13,17 @@ class FeedbackForm extends Component {
 
   handleIncrementGood = () => {
     this.setState(preventState => {
-      return { good: preventState.good + 1 };
+      return {
+        good: preventState.good + 1,
+      };
     });
   };
 
   handleIncrementNeutral = () => {
     this.setState(preventState => {
-      return { neutral: preventState.neutral + 1 };
+      return {
+        neutral: preventState.neutral + 1,
+      };
     });
   };
 
@@ -25,6 +31,17 @@ class FeedbackForm extends Component {
     this.setState(preventState => {
       return { bad: preventState.bad + 1 };
     });
+  };
+
+  countTotalFeedback = () => {
+    return this.state.good + this.state.neutral + this.state.bad;
+  };
+
+  countPositiveFeedbacksPercentage = () => {
+    return (
+      (this.state.good * 100) /
+      (this.state.good + this.state.neutral + this.state.bad)
+    );
   };
 
   render() {
@@ -52,19 +69,14 @@ class FeedbackForm extends Component {
         >
           Bad
         </button>
-        <h2>Statistics</h2>
-        <p>
-          Good:
-          <span>{this.state.good}</span>
-        </p>
-        <p>
-          Neutral:
-          <span>{this.state.neutral}</span>
-        </p>
-        <p>
-          Bad:
-          <span>{this.state.bad}</span>
-        </p>
+
+        <Statistics
+          onIncrementGood={this.state.good}
+          onIncrementNeutral={this.state.neutral}
+          onIncrementBad={this.state.bad}
+          onTotal={this.countTotalFeedback()}
+          onPositivePercentage={this.countPositiveFeedbacksPercentage()}
+        />
       </div>
     );
   }
