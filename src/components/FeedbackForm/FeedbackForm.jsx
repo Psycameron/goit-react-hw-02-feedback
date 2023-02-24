@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Section } from 'components/Section';
 import { FeedbackOptions } from 'components/FeedbackOptions';
 import { Statistics } from 'components/Statistics';
+import { Notification } from 'components/Notification';
 
 import style from './FeedbackForm.module.css';
 
@@ -48,13 +49,17 @@ class FeedbackForm extends Component {
         </Section>
 
         <Section title="Statistics">
-          <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.countTotalFeedback()}
-            positivePercentage={this.countPositiveFeedbacksPercentage()}
-          />
+          {this.countTotalFeedback() === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.countTotalFeedback()}
+              positivePercentage={this.countPositiveFeedbacksPercentage()}
+            />
+          )}
         </Section>
       </div>
     );

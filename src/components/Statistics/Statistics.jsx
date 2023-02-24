@@ -1,5 +1,5 @@
 export function Statistics({ good, neutral, bad, total, positivePercentage }) {
-  const allFeedbacks = total;
+  const totalFeedbacks = total;
   const posPercentage = positivePercentage.toFixed(0);
 
   return (
@@ -18,7 +18,7 @@ export function Statistics({ good, neutral, bad, total, positivePercentage }) {
       </p>
       <p>
         Total:
-        <span>{allFeedbacks}</span>
+        <span>{totalFeedbacks}</span>
       </p>
       <p>
         Positive feedbacks:
