@@ -1,4 +1,8 @@
-.FeedbackForm {
+.Form {
     padding: 40px;
   width: 100%;
+}
+
+.Form__button {
+    margin-right: 30px;
 }

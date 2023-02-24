@@ -9,25 +9,61 @@ class FeedbackForm extends Component {
     bad: 0,
   };
 
+  handleIncrementGood = () => {
+    this.setState(preventState => {
+      return { good: preventState.good + 1 };
+    });
+  };
+
+  handleIncrementNeutral = () => {
+    this.setState(preventState => {
+      return { neutral: preventState.neutral + 1 };
+    });
+  };
+
+  handleIncrementBad = () => {
+    this.setState(preventState => {
+      return { bad: preventState.bad + 1 };
+    });
+  };
+
   render() {
     return (
-      <div className={style.FeedbackForm}>
+      <div className={style.Form}>
         <h1>Please leave feedback</h1>
-        <button type="button">Good</button>
-        <button type="button">Neutral</button>
-        <button type="button">Bad</button>
+        <button
+          type="button"
+          className={style.Form__button}
+          onClick={this.handleIncrementGood}
+        >
+          Good
+        </button>
+        <button
+          type="button"
+          className={style.Form__button}
+          onClick={this.handleIncrementNeutral}
+        >
+          Neutral
+        </button>
+        <button
+          type="button"
+          className={style.Form__button}
+          onClick={this.handleIncrementBad}
+        >
+          Bad
+        </button>
         <h2>Statistics</h2>
         <p>
           Good:
-          <span></span>
+          <span>{this.state.good}</span>
         </p>
         <p>
           Neutral:
-          <span></span>
+          <span>{this.state.neutral}</span>
         </p>
         <p>
           Bad:
-          <span></span>
+          <span>{this.state.bad}</span>
         </p>
       </div>
     );
